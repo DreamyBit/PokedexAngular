@@ -15,6 +15,7 @@ import { SortEvent } from 'primeng/api';
 })
 export class PokemonComponent implements OnInit {
   pokemons: any = [];
+  sortedPokemons: any = [];
   filteredPokemons: any = [];
   query = '';
   currentPage = 1;
@@ -39,6 +40,7 @@ export class PokemonComponent implements OnInit {
       next: (data) => {
         this.pokemons.push(data);
         this.pokemons = this.pokemons[0].results;
+        this.sortedPokemons = this.pokemons.slice();
         this.filteredPokemons = this.pokemons.slice();
       },
       error: (e) => console.error(e),
@@ -46,7 +48,7 @@ export class PokemonComponent implements OnInit {
   }
 
   filterPokemons(): void {
-    this.filteredPokemons = this.pokemons.filter((pokemon: any) =>
+    this.filteredPokemons = this.sortedPokemons.filter((pokemon: any) =>
       pokemon.name.toLowerCase().includes(this.query.toLowerCase())
     );
 
@@ -57,21 +59,23 @@ export class PokemonComponent implements OnInit {
 
     if (this.currentSortState === 0) {
       // Ascending sort
-      this.filteredPokemons.sort((a: any, b: any) =>
+      this.sortedPokemons.sort((a: any, b: any) =>
         a.name.localeCompare(b.name)
       );
       this.currentSortState = 1;
     } else if (this.currentSortState === 1) {
       // Descending sort
-      this.filteredPokemons.sort((a: any, b: any) =>
+      this.sortedPokemons.sort((a: any, b: any) =>
       b.name.localeCompare(a.name)
       );
       this.currentSortState = -1;
     } else {
-      this.filteredPokemons = [...this.pokemons.slice()];
+      this.sortedPokemons = [...this.pokemons.slice()];
       this.currentSortState = 0;
     }
 
+    this.filteredPokemons = this.sortedPokemons.slice();
+    this.filterPokemons();
     this.cdRef.markForCheck();
   }
 
