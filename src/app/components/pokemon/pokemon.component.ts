@@ -105,7 +105,6 @@ export class PokemonComponent implements OnInit {
 
     this.http.get(apiUrl).subscribe(
       (data: any) => {
-        console.log(data);
         this.pokemonDataService.pokemon = data;
         this.openModal();
       },

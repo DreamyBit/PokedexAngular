@@ -3,6 +3,7 @@
 @import "primeng/resources/primeng.css";
 @import "~primeicons/primeicons.css";
 
+
 body {
   background-image: url('./app/images/puchamon_bg.jpg');
   background-size: cover;

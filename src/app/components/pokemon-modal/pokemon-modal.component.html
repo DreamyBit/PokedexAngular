@@ -1,7 +1,14 @@
 <ng-container *ngIf="pokemon">
   <p-card class="modal-card">
+    <!-- Card Header -->
+    <div class="modal-header">
+      <h2 class="pokemon-name capitalize">{{ pokemon.name }}</h2>
+    </div>
+
+    <!-- Card Body -->
     <div class="modal-content">
-      <div class="left-column">
+      <!-- Grid Container -->
+      <div class="grid-container">
         <!-- Carousel -->
         <div class="p-carousel-container">
           <p-carousel
@@ -21,34 +28,57 @@
           </p-carousel>
         </div>
 
-        <!-- Stats -->
-        <div class="stats">
-          <div *ngFor="let stat of pokemon.stats" class="stat">
-            <p>{{ stat.stat.name }}: {{ stat.base_stat }}</p>
+        <!-- Bottom Half Grid -->
+        <div class="bottom-half-grid">
+          <!-- Left Column -->
+          <div class="left-column">
+            <!-- Stats Table -->
+            <div class="stats-table-container">
+              <p-table
+                [value]="statsTable"
+                [paginator]="false"
+                styleClass="p-datatable-sm p-datatable-striped"
+              >
+              <ng-template pTemplate="caption"><div class="table-header capitalize">estadísticas</div></ng-template>
+                <ng-template pTemplate="body" let-rowData>
+                  <tr>
+                    <td class="capitalize">
+                      <ng-container *ngIf="rowData.icon">
+                        <i [class]="rowData.icon"></i>
+                      </ng-container>
+                      {{ rowData.attribute }}
+                    </td>
+                    <td class="capitalize">{{ rowData.value }}</td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="right-column">
-        <!-- Info Table -->
-        <div class="info-table-container">
-          <p-table
-            [value]="info1Table"
-            [paginator]="false"
-            styleClass="p-datatable-sm p-datatable-striped"
-          >
-            <ng-template pTemplate="body" let-rowData>
-              <tr>
-                <td class="capitalize">
-                  <ng-container *ngIf="rowData.icon">
-                    <i [class]="rowData.icon"></i>
-                  </ng-container>
-                  {{ rowData.attribute }}
-                </td>
-                <td class="capitalize">{{ rowData.value }}</td>
-              </tr>
-            </ng-template>
-          </p-table>
+          <!-- Right Column -->
+          <div class="right-column">
+            <!-- Info Table -->
+            <div class="info-table-container">
+              <p-table
+                [value]="infoTable"
+                [paginator]="false"
+                styleClass="p-datatable-sm p-datatable-striped"
+              >
+              <ng-template pTemplate="caption"><div class="table-header capitalize">información</div></ng-template>
+                <ng-template pTemplate="body" let-rowData>
+                  <tr>
+                    <td class="capitalize">
+                      <ng-container *ngIf="rowData.icon">
+                        <i [class]="rowData.icon"></i>
+                      </ng-container>
+                      {{ rowData.attribute }}
+                    </td>
+                    <td class="capitalize">{{ rowData.value }}</td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </div>
         </div>
       </div>
     </div>

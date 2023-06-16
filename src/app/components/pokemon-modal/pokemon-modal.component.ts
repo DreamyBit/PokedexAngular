@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PokemonDataService } from'../../services/pokemon-data-service.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -13,18 +13,27 @@ export class PokemonModal implements OnInit {
   @ViewChild('modalContent') modalContent: any;
 
   sprites: any = [];
-  info1Table: any = [];
+  infoTable: any = [];
+  statsTable: any = []
 
   constructor(private modalService: NgbModal, private pokemonDataService: PokemonDataService, private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.info1Table = [
-      { attribute: 'id', value: this.pokemon.id, icon: 'pi pi-info-circle' },
+    this.infoTable = [
+      { attribute: 'id', value: this.pokemon.id, icon: 'pi pi-id-card' },
       { attribute: 'types', value: this.pokemon.types.map((type:any) => type.type.name).join(', '), icon: 'pi pi-tag' },
       { attribute: 'base exp', value: this.pokemon.base_experience, icon: 'pi pi-chart-bar' },
-      { attribute: 'ability', value: this.pokemon.abilities[0].ability.name, icon: 'pi pi-chart-bar' },
-      { attribute: 'Height', value: this.pokemon.height, icon: 'pi pi-chart-bar' },
-      { attribute: 'Weight', value: this.pokemon.weight, icon: 'pi pi-chart-bar' },
+      { attribute: 'ability', value: this.pokemon.abilities[0].ability.name, icon: 'pi pi-star' },
+      { attribute: 'Height', value: this.pokemon.height, icon: 'pi pi-info-circle' },
+      { attribute: 'Weight', value: this.pokemon.weight, icon: 'pi pi-info-circle' },
+    ];
+    this.statsTable = [
+      { attribute: 'hp', value: this.pokemon.stats[0].base_stat, icon: 'pi pi-heart' },
+      { attribute: 'attack', value: this.pokemon.stats[1].base_stat, icon: 'pi pi-circle' },
+      { attribute: 'defense', value: this.pokemon.stats[2].base_stat, icon: 'pi pi-circle-fill' },
+      { attribute: 'sp. attack', value: this.pokemon.stats[3].base_stat, icon: 'pi pi-star' },
+      { attribute: 'sp. defense', value: this.pokemon.stats[4].base_stat, icon: 'pi pi-star-fill' },
+      { attribute: 'speed', value: this.pokemon.stats[5].base_stat, icon: 'pi pi-stopwatch' },
     ];
     this.open(null);
   }
