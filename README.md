@@ -36,8 +36,9 @@ La búsqueda no se ve afectada por capitalización de letras.
 El modal muestra información detallada del Pokémon seleccionado.
 ![Alt text](https://github.com/DreamyBit/PokedexAngular/blob/master/docs/pokedex_modal.png?sanitize=true)
 
-Paquete_______________Versión
----------------------------------------------------------
+## Paquetes
+
+```
 @angular-devkit/architect____________0.1601.0
 @angular-devkit/build-angular________16.1.0
 @angular-devkit/core_________________16.1.0
@@ -46,6 +47,7 @@ Paquete_______________Versión
 @schematics/angular__________________16.1.0
 rxjs___________________________________7.8.1
 typescript_____________________________5.1.3
+```
 
 ## Licencia
 
