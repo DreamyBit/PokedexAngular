@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <p-card class="custom-card">
+    <div class="img-container">
+      <p-image src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" class="card-image"></p-image>
+    </div>
+    <div class="p-card-content">
+      <div class="table-container">
+        <p-table
+          styleClass="p-datatable-sm p-datatable-striped "
+          [value]="filteredPokemons"
+          [customSort]="true"
+          [sortMode]="currentSortState === 0 ? 'single' : 'multiple'"
+          [paginator]="true"
+          [rows]="10"
+          [rowHover]="true"
+          currentPageReportTemplate="Mostrando {first}-{last} de {totalRecords} pokemones"
+          [rowsPerPageOptions]="[10, 25, 50]"
+        >
+          <!-- Table Header -->
+          <ng-template pTemplate="caption">
+            <div class="caption-container">
+              <div class="button-container">
+                <p-button styleClass="p-button-text" (click)="sortData()">
+                  <b>Nombre</b>
+                  <i
+                    class="pi"
+                    [ngClass]="{
+                      'pi-sort': currentSortState === 0,
+                      'pi-sort-down': currentSortState === 1,
+                      'pi-sort-up': currentSortState === -1
+                    }"
+                  ></i>
+                </p-button>
+              </div>
+              <div class="input-container">
+                <input
+                  type="text"
+                  [(ngModel)]="query"
+                  (input)="filterPokemons()"
+                  placeholder="Buscar..."
+                />
+              </div>
+            </div>
+          </ng-template>
+
+          <!-- Table Body -->
+          <ng-template pTemplate="body" let-pokemon>
+            <tr (click)="onPokemonClick(pokemon.name)">
+              <td class="capitalize">{{ pokemon.name }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </p-card>
+</div>

@@ -1,0 +1,56 @@
+<ng-container *ngIf="pokemon">
+  <p-card class="modal-card">
+    <div class="modal-content">
+      <div class="left-column">
+        <!-- Carousel -->
+        <div class="p-carousel-container">
+          <p-carousel
+            [value]="filteredSprites"
+            [numVisible]="1"
+            [circular]="true"
+          >
+            <ng-template let-sprite pTemplate="item">
+              <img
+                *ngIf="sprite"
+                [src]="sprite"
+                [alt]="pokemon.name"
+                class="carousel-image"
+              />
+              <div *ngIf="!sprite" class="placeholder-image"></div>
+            </ng-template>
+          </p-carousel>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+          <div *ngFor="let stat of pokemon.stats" class="stat">
+            <p>{{ stat.stat.name }}: {{ stat.base_stat }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <!-- Info Table -->
+        <div class="info-table-container">
+          <p-table
+            [value]="info1Table"
+            [paginator]="false"
+            styleClass="p-datatable-sm p-datatable-striped"
+          >
+            <ng-template pTemplate="body" let-rowData>
+              <tr>
+                <td class="capitalize">
+                  <ng-container *ngIf="rowData.icon">
+                    <i [class]="rowData.icon"></i>
+                  </ng-container>
+                  {{ rowData.attribute }}
+                </td>
+                <td class="capitalize">{{ rowData.value }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </p-card>
+</ng-container>

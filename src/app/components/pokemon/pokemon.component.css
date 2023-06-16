@@ -1,0 +1,49 @@
+.custom-card {
+  max-width: 600px;
+  min-width: 240px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0);
+  margin-top: 40px;
+  margin-bottom: 80px;
+  padding: 1rem;
+}
+
+@media (min-width: 480px) {
+  .custom-card {
+    width: 100%;
+    max-width: 480px;
+  }
+}
+
+.caption-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.button-container {
+  margin-right: 1rem;
+}
+
+.input-container {
+  flex: 1;
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.card-image {
+  width: auto;
+  max-height: 100px;
+  object-fit: cover;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
