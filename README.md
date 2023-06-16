@@ -1,27 +1,58 @@
-# Pruebaclickma
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+# Pokédex en Angular usando PokéAPI
 
-## Development server
+![Alt text](https://github.com/DreamyBit/PokedexAngular/blob/master/docs/pokedex_1.png?sanitize=true)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Características
 
-## Code scaffolding
+- Datos actualizados en tiempo real mediante [PokéAPI][pokeapi].
+- Posibilidad de personalizar la navegación mediante cambios en paginado, filtrado responsivo, y tres tipos de ordenamiento: por ID, alfabéticamente ascendiente, y alfabéticamente descendiente.
+- Permite revisar los detalles de cualquier Pokémon al hacerles clic.
+- Tablas responsivas ante distintas resoluciones de pantalla.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Requisitos e instalación
 
-## Build
+El presente proyecto utiliza angular y por ello requiere de la instalación previa de [Node.js][node].
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+En caso de querer instalar el proyecto mediante [git][git] se debe utilizar el comando:
+```shell
+git clone https://github.com/DreamyBit/PokedexAngular
+```
+Para instalar las dependencias, desde la carpeta donde fue descargado el proyecto se debe ejecutar el comando:
+```shell
+npm install --legacy-peer-deps
+```
 
-## Running unit tests
+Una vez se encuentran instaladas las dependencias para ejecutar el proyecto se debe utilizar el comando:
+```shell
+ng serve --open
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Imagenes
 
-## Running end-to-end tests
+La búsqueda no se ve afectada por capitalización de letras.
+![Alt text](https://github.com/DreamyBit/PokedexAngular/blob/master/docs/pokedex_search_filter.png?sanitize=true)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+El modal muestra información detallada del Pokémon seleccionado.
+![Alt text](https://github.com/DreamyBit/PokedexAngular/blob/master/docs/pokedex_modal.png?sanitize=true)
 
-## Further help
+Paquete_______________Versión
+---------------------------------------------------------
+@angular-devkit/architect____________0.1601.0
+@angular-devkit/build-angular________16.1.0
+@angular-devkit/core_________________16.1.0
+@angular-devkit/schematics___________16.1.0
+@angular/cli__________________________16.1.0
+@schematics/angular__________________16.1.0
+rxjs___________________________________7.8.1
+typescript_____________________________5.1.3
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Licencia
+
+GNU General Public License v3.0
+
+   [pokeapi]: <https://pokeapi.co>
+   [node]: <https://nodejs.org/en>
+   [git]: <https://git-scm.com/downloads>
+   [gitguide]: <https://github.com/DreamyBit/LandCoverageEE-R/blob/main/docs/Guia%20Script%20-%20Covertura%20de%20suelo%20usando%20Earth%20Engine%20y%20R.pdf>
+   [repo]: <https://github.com/DreamyBit/LandCoverageEE-R>
