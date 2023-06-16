@@ -36,6 +36,9 @@ La búsqueda no se ve afectada por capitalización de letras.
 El modal muestra información detallada del Pokémon seleccionado.
 ![Alt text](https://github.com/DreamyBit/PokedexAngular/blob/master/docs/pokedex_modal.png?sanitize=true)
 
+También se ajusta a resoluciones menores
+![Alt text](https://github.com/DreamyBit/PokedexAngular/blob/master/docs/pokedex_modal_small.png?sanitize=true)
+
 ## Paquetes
 
 ```
