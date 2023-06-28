@@ -47,7 +47,12 @@ export class PokemonComponent implements OnInit {
     });
   }
 
-  filterPokemons(): void {
+  filterPokemons(event: any): void {
+    console.log(event)
+    if('name' in event){
+      this.query = event.name;
+    }
+
     this.filteredPokemons = this.sortedPokemons.filter((pokemon: any) =>
       pokemon.name.toLowerCase().includes(this.query.toLowerCase())
     );
@@ -75,7 +80,7 @@ export class PokemonComponent implements OnInit {
     }
 
     this.filteredPokemons = this.sortedPokemons.slice();
-    this.filterPokemons();
+    this.filterPokemons(null);
     this.cdRef.markForCheck();
   }
 

@@ -33,13 +33,16 @@
                 </p-button>
               </div>
               <div class="input-container">
-                <input
-                  type="text"
+                <p-autoComplete
                   [(ngModel)]="query"
-                  (input)="filterPokemons()"
+                  (completeMethod)="filterPokemons($event)"
+                  field="name"
+                  [suggestions]="filteredPokemons"
                   placeholder="Buscar..."
-                />
+                  (onSelect)="filterPokemons($event)"
+                ></p-autoComplete>
               </div>
+
             </div>
           </ng-template>
 
